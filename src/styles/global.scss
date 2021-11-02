@@ -1,0 +1,49 @@
+// @import "./grid.scss";
+@import "antd/dist/antd.css";
+@import "bootstrap/dist/css/bootstrap.min.css";
+
+@media (max-width: 768px) {
+  .container,
+  .container-sm {
+    max-width: unset;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+@media (min-width: 1260px) {
+  .container,
+  .container-sm,
+  .container-md,
+  .container-lg,
+  .container-xl {
+    max-width: 1440px;
+  }
+}
+*,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-left: 0;
+  margin-right: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 0;
+  padding-right: 0;
+  margin: 0;
+  padding: 0;
+}
+body,
+html {
+  line-height: 1;
+}
+
+ul,
+ol {
+  list-style: none;
+}

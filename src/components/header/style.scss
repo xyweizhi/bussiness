@@ -1,0 +1,36 @@
+#header {
+  .headerNav {
+    li {
+      padding: 0 25px;
+      display: inline-block;
+      a {
+        font-size: 14px;
+        font-weight: bold;
+        color: #f5eeee;
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+@media screen and(max-width:767px) {
+  #header {
+    background-color: transparent !important;
+    width: 100%;
+    position: absolute;
+    z-index: 9;
+
+    .webName {
+      position: relative;
+      right: 50%;
+      top: 0;
+      transform: translateX(50%);
+    }
+    .headerMenu {
+      position: relative;
+      right: 0%;
+      top: 0;
+      transform: translateX(50%);
+    }
+  }
+}

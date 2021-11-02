@@ -1,0 +1,39 @@
+.footer {
+  text-align: center;
+  padding-bottom: 50px;
+  padding-top: 50px;
+  margin-top: 96px;
+}
+.text {
+  font-size: 20px;
+  line-height: 20px;
+  font-family: PingFang SC;
+  color: #eff2fa;
+}
+
+.email {
+  display: inline;
+}
+
+.mobile-email {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .footer {
+    margin-top: 0px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+  .text {
+    font-size: 15px;
+    line-height: 24px;
+  }
+  .email {
+    display: none;
+  }
+  .mobile-email {
+    display: block;
+    text-align: center;
+  }
+}

@@ -1,0 +1,39 @@
+.swiper-container {
+  --swiper-pagination-color: #34a98e;
+  --swiper-navigation-color: #999999;
+}
+
+.my-bullet {
+  margin: 0 15px;
+  width: 16px;
+  height: 16px;
+  border: 2px solid #34a98e;
+  display: inline-block;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.my-bullet-active {
+  background: #34a98e;
+}
+
+.swiper-button-prev {
+  margin-left: 100px;
+}
+.swiper-button-next {
+  margin-right: 100px;
+}
+
+@media (max-width: 768px) {
+  .my-bullet {
+    width: 8px;
+    height: 8px;
+  }
+  .swiper-button-prev .swiper-button-next {
+    display: none;
+  }
+
+  .swiper-container {
+    --swiper-navigation-size: 0;
+  }
+}

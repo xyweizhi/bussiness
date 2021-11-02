@@ -1,0 +1,36 @@
+.news {
+  margin: 10px auto;
+  &__newsTitle {
+    font-size: 48px;
+    line-height: 48px;
+    font-weight: bold;
+    color: #222222;
+    font-family: "Microsoft YaHei";
+    margin: 10px 30px;
+    text-align: center;
+  }
+
+  &__listItem {
+    margin: 5px 0;
+  }
+  &__listItemImage {
+    padding: 10px 5px 0;
+  }
+  .ant-list-lg .ant-list-item {
+    padding: 16px 5px;
+  }
+  .ant-card {
+    height: 322px;
+  }
+}
+
+@media (max-width: 768px) {
+  .news {
+    &__newsTitle {
+      font-size: 24px;
+    }
+    .ant-card {
+      height: auto;
+    }
+  }
+}
