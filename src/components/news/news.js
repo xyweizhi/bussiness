@@ -37,7 +37,7 @@ const descriptionData = [
 ]
 
 const listData = []
-for (let i = 0; i < 8; i++) {
+for (let i = 0; i < 6; i++) {
   listData.push({
     id: i + 1,
     href: "https://ant.design",
@@ -63,11 +63,11 @@ const Mynews = () => (
       grid={{
         gutter: 10,
         xs: 1,
-        sm: 2,
-        md: 4,
-        lg: 4,
-        xl: 4,
-        xxl: 4,
+        sm: 3,
+        md: 3,
+        lg: 3,
+        xl: 3,
+        xxl: 3,
       }}
       itemLayout="vertical"
       size="large"
@@ -78,7 +78,7 @@ const Mynews = () => (
         <List.Item key={item.title} className="news__listItem">
           <Card
             onClick={() => {
-              window.location.href = "/train/detail?id=" + (item.id % 10)
+              window.location.href = "/bussiness/detail?id=" + (item.id % 10)
             }}
             hoverable
             // style={{ width: 300 }}

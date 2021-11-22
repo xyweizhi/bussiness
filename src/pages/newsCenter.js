@@ -7,7 +7,7 @@ import Seo from "../components/seo"
 
 // import { withRouter } from "react-router-dom"
 
-// import "./news_center.scss"
+import "./style.scss"
 
 const { Meta } = Card
 const listData = []
@@ -38,7 +38,7 @@ class newsCenter extends React.Component {
     const that = this
     axios
       .get(
-        "https://www.fastmock.site/mock/3a60302423a5db4ee8b58db290fdcafc/test/all_new_react?page=1"
+        "https://www.fastmock.site/mock/3a60302423a5db4ee8b58db290fdcafc/test/all_new_react?page=1&page_size=6"
       )
       .then(function (response) {
         console.log(response.data.data.userInfo)
@@ -62,7 +62,9 @@ class newsCenter extends React.Component {
     axios
       .get(
         "https://www.fastmock.site/mock/3a60302423a5db4ee8b58db290fdcafc/test/all_new_react?page=" +
-          page
+          page +
+          "&page_size=" +
+          pageSize
       )
       .then(function (response) {
         console.log(response.data.data.userInfo)
@@ -109,25 +111,27 @@ class newsCenter extends React.Component {
         <div className="news container">
           <List
             grid={{
-              gutter: 16,
+              gutter: 10,
               xs: 1,
-              sm: 2,
-              md: 4,
-              lg: 4,
-              xl: 4,
-              xxl: 4,
+              sm: 3,
+              md: 3,
+              lg: 3,
+              xl: 3,
+              xxl: 3,
             }}
             itemLayout="vertical"
             size="large"
             split={false}
             pagination={{
-              onChange: page => {
+              onChange: (page, pageSize) => {
                 console.log(page)
-                that.onPageChange(page)
+                that.onPageChange(page, pageSize)
               },
-              pageSize: 8,
-              total: 12,
+              pageSize: 6,
+              total: 100,
               hideOnSinglePage: true,
+              pageSizeOptions: [6],
+              showSizeChanger: false,
             }}
             dataSource={newsData}
             header={<div className="news__newsTitle">新闻中心</div>}
@@ -141,7 +145,8 @@ class newsCenter extends React.Component {
                 <Card
                   onClick={() => {
                     console.log("onClick:" + item.id)
-                    window.location.href = "/train/detail?id=" + (item.id % 10)
+                    window.location.href =
+                      "/bussiness/detail?id=" + (item.id % 10)
                     // this.onItemClick(item)
                   }}
                   hoverable

@@ -5,7 +5,7 @@ module.exports = {
     author: `@gatsbyjs`,
     siteUrl: `https://gatsbystarterdefaultsource.gatsbyjs.io/`,
   },
-  pathPrefix: "/train",
+  pathPrefix: "/bussiness",
   plugins: [
     "gatsby-plugin-antd",
     `gatsby-plugin-react-helmet`,

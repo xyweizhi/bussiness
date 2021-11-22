@@ -18,6 +18,13 @@
 .mobile-email {
   display: none;
 }
+@media (max-width: 768px) {
+  .footer {
+    margin-top: 0px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+}
 
 @media (max-width: 767px) {
   .footer {
