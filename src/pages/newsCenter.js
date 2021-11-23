@@ -36,9 +36,12 @@ class newsCenter extends React.Component {
 
   componentDidMount() {
     const that = this
+    var pagerIndex = parseInt(window.location.href.split("?page=")[1])
     axios
       .get(
-        "https://www.fastmock.site/mock/3a60302423a5db4ee8b58db290fdcafc/test/all_new_react?page=1&page_size=6"
+        "https://www.fastmock.site/mock/3a60302423a5db4ee8b58db290fdcafc/test/all_new_react?page=" +
+          pagerIndex +
+          "&page_size=6"
       )
       .then(function (response) {
         console.log(response.data.data.userInfo)
@@ -71,6 +74,8 @@ class newsCenter extends React.Component {
         that.setState({
           newsData: response.data.data.userInfo,
         })
+        var valiable = window.location.href.split("?")[0] + `?page=${page}`
+        window.history.pushState({}, 0, valiable)
       })
       .catch(function (error) {
         console.log(error)
@@ -83,6 +88,7 @@ class newsCenter extends React.Component {
   render() {
     const { newsData, totalSize } = this.state
     const that = this
+    var pagerIndex = parseInt(window.location.href.split("?page=")[1])
     return (
       <Layout>
         <Seo title="新闻中心" />
@@ -132,6 +138,7 @@ class newsCenter extends React.Component {
               hideOnSinglePage: true,
               pageSizeOptions: [6],
               showSizeChanger: false,
+              defaultCurrent: pagerIndex,
             }}
             dataSource={newsData}
             header={<div className="news__newsTitle">新闻中心</div>}
