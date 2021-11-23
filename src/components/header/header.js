@@ -83,7 +83,7 @@ const Header = ({ siteTitle }) => (
             <Link to="/">首页</Link>
           </li>
           <li>
-            <Link to="/newsCenter">新闻中心</Link>
+            <Link to="/newsCenter?page=1">新闻中心</Link>
           </li>
           <li>
             <Link to="/about">关于我们</Link>

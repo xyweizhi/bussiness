@@ -36,7 +36,11 @@ class newsCenter extends React.Component {
 
   componentDidMount() {
     const that = this
-    var pagerIndex = parseInt(window.location.href.split("?page=")[1])
+    var pagerIndex = 1
+    if (window.location.href.split("?page=").length > 1) {
+      pagerIndex = parseInt(window.location.href.split("?page=")[1])
+    }
+
     axios
       .get(
         "https://www.fastmock.site/mock/3a60302423a5db4ee8b58db290fdcafc/test/all_new_react?page=" +
@@ -88,7 +92,10 @@ class newsCenter extends React.Component {
   render() {
     const { newsData, totalSize } = this.state
     const that = this
-    var pagerIndex = parseInt(window.location.href.split("?page=")[1])
+    var pagerIndex = 1
+    if (window.location.href.split("?page=").length > 1) {
+      pagerIndex = parseInt(window.location.href.split("?page=")[1])
+    }
     return (
       <Layout>
         <Seo title="新闻中心" />
