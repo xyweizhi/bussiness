@@ -23,28 +23,31 @@ for (let i = 0; i < 23; i++) {
   })
 }
 
+const isBrowser = typeof window !== "undefined"
 class newsCenter extends React.Component {
   constructor(props) {
     super(props)
+    var pagerIndex = 1
+    if (isBrowser) {
+      if (window.location.href.split("?page=").length > 1) {
+        pagerIndex = parseInt(window.location.href.split("?page=")[1])
+      }
+    }
     this.state = {
       newsData: [],
       totalSize: 12,
+      current: pagerIndex,
     }
-
     this.onItemClick = this.onItemClick.bind(this)
   }
 
   componentDidMount() {
     const that = this
-    var pagerIndex = 1
-    if (window.location.href.split("?page=").length > 1) {
-      pagerIndex = parseInt(window.location.href.split("?page=")[1])
-    }
 
     axios
       .get(
         "https://www.fastmock.site/mock/3a60302423a5db4ee8b58db290fdcafc/test/all_new_react?page=" +
-          pagerIndex +
+          that.state.current +
           "&page_size=6"
       )
       .then(function (response) {
@@ -77,6 +80,7 @@ class newsCenter extends React.Component {
         console.log(response.data.data.userInfo)
         that.setState({
           newsData: response.data.data.userInfo,
+          current: page,
         })
         var valiable = window.location.href.split("?")[0] + `?page=${page}`
         window.history.pushState({}, 0, valiable)
@@ -90,12 +94,9 @@ class newsCenter extends React.Component {
     console.log("onItemClick:" + index.title)
   }
   render() {
-    const { newsData, totalSize } = this.state
+    const { newsData, totalSize, current } = this.state
     const that = this
-    var pagerIndex = 1
-    if (window.location.href.split("?page=").length > 1) {
-      pagerIndex = parseInt(window.location.href.split("?page=")[1])
-    }
+
     return (
       <Layout>
         <Seo title="新闻中心" />
@@ -145,7 +146,7 @@ class newsCenter extends React.Component {
               hideOnSinglePage: true,
               pageSizeOptions: [6],
               showSizeChanger: false,
-              defaultCurrent: pagerIndex,
+              current: current,
             }}
             dataSource={newsData}
             header={<div className="news__newsTitle">新闻中心</div>}
